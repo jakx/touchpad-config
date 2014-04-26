@@ -1,0 +1,9 @@
+First install the version of synclient found here: https://github.com/felipejfc/xserver-xorg-input-synaptics
+then clone the project, cd into the directory and run 'make install'.
+
+A daemon process that interprets swipes
+    currently works with
+        *three finger swipe left goes back on a webpage (triggers alt+Left)
+        *three finger swipe right goes forward on a webpage (triggers alt+Right)
+        *four finger swipe up or down shows or hides desktop (triggers ctrl+alt+d)
+        *three finger swipe down opens a terminal (triggers super+t)
