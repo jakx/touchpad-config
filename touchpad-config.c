@@ -11,12 +11,18 @@ An app that interprets hand movements on a touchpad laptop
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <sys/prctl.h>
+#include <signal.h>
+
+
+static FILE *fp;
 
 
 int main( int argc, char *argv[] )
 {
 
-  FILE *fp;
+  //close all child process
+  prctl(PR_SET_PDEATHSIG, SIGHUP);
   int status;
   char buf[1035];
 
@@ -45,7 +51,6 @@ int main( int argc, char *argv[] )
 
   /* Read the output a line at a time - output it. */
   while (fgets(buf, sizeof(buf)-1, fp) != NULL) {
-   // printf("%s", path);
         char* token;
         token = (char*)strtok(buf, " ");
         int i = 1;
@@ -53,8 +58,6 @@ int main( int argc, char *argv[] )
         while (token) {
             token = (char*)strtok(NULL, " ");
 
-//            printf("token: %s\n", token);
- //           printf("i: %d\n", i);
 
             if(i == 1) x = atoi(token);
             if(i == 2) y = atoi(token);
@@ -91,14 +94,14 @@ int main( int argc, char *argv[] )
                     else if(diff_y > 500 && prev_fingers ==3){
                         popen("xdotool key super+t", "re");
                     }
-                    else if(diff_y > -800 && prev_fingers ==3){
-//                        popen("xdotool key ctrl+alt+Up", "re");
+                    else if(diff_y > -500 && prev_fingers ==3){
+                        popen("xdotool key ctrl+alt+d", "re");
                     }
                     else if(diff_y > 500 && prev_fingers ==4){
                         popen("xdotool key ctrl+alt+d", "re");
                     }
                     else if(diff_y > -500 && prev_fingers ==4){
-                        popen("xdotool key ctrl+alt+d", "re");
+                        pclose(popen("xdotool key ctrl+alt+d", "re"));
                     }
 
                     start = false;
@@ -114,6 +117,6 @@ int main( int argc, char *argv[] )
   pclose(fp);
 
   return 0;
-       }
+ }
 
 
