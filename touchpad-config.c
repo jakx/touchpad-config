@@ -64,7 +64,7 @@ int main( int argc, char *argv[] )
             if(i == 4) fingers = atoi(token);
             i+= 1;
         }
-        if( fingers == 3 || fingers == 4){
+        if( fingers == 3 || fingers == 4 || fingers == 2){
             if(! start) {
                 prev_fingers = fingers;
                 start_x = x;
@@ -73,9 +73,8 @@ int main( int argc, char *argv[] )
                 timestart = time; 
             }
        }
-       if(start && !(fingers == 3 || fingers == 4)){
-                if(time - timestart > .37 ){
-                    //too much time has passed
+       if(start && !(fingers == 3 || fingers == 4 || fingers ==2)){
+                if(time - timestart > .40 ){
                     start = false;
                     start_x = 0;
                     start_y = 0;
@@ -91,7 +90,7 @@ int main( int argc, char *argv[] )
                     else if(diff_x > 85 && prev_fingers ==3){
                         popen("xdotool key alt+Right", "re");
                     }
-                    else if(diff_y > 500 && prev_fingers ==3){
+                    else if(diff_y > 500 && prev_fingers ==2){
                         popen("xdotool key super+t", "re");
                     }
                     else if(diff_y > -500 && prev_fingers ==4){
