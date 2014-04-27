@@ -74,7 +74,7 @@ int main( int argc, char *argv[] )
             }
        }
        if(start && !(fingers == 3 || fingers == 4 || fingers ==2)){
-                if(time - timestart > .40 ){
+                if(time - timestart > .50 ){
                     start = false;
                     start_x = 0;
                     start_y = 0;
