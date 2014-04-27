@@ -74,7 +74,7 @@ int main( int argc, char *argv[] )
             }
        }
        if(start && !(fingers == 3 || fingers == 4 || fingers ==2)){
-                if(time - timestart > .50 ){
+                if(time - timestart > .38 ){
                     start = false;
                     start_x = 0;
                     start_y = 0;
@@ -84,21 +84,26 @@ int main( int argc, char *argv[] )
                 else {
                     diff_x = x - start_x;
                     diff_y = y - start_y;
-                    if(diff_x < -85 && prev_fingers ==3){
+                    //four finger swipe  up
+                    if(diff_y < -400 && prev_fingers ==4){
+                        popen("xdotool key ctrl+alt+d", "re");
+                    }
+                    //four finger swipe down
+                    else if(diff_y > 400 && prev_fingers ==4){
+                        popen("xdotool key super+t", "re");
+                    }
+                    //three finger swipe left
+                    else if(diff_x < -85 && prev_fingers ==3){
                           popen("xdotool key alt+Left", "re");
                     }
+                    //three finger swipe right
                     else if(diff_x > 85 && prev_fingers ==3){
                         popen("xdotool key alt+Right", "re");
                     }
-                    else if(diff_y > 400 && prev_fingers ==3){
-                        popen("xdotool key super+t", "re");
-                    }
-                    else if(diff_y > -400 && prev_fingers ==4){
-                        popen("xdotool key ctrl+alt+d", "re");
-                    }
-                    else if(diff_y > 400 && prev_fingers ==4){
-                        popen("xdotool key ctrl+alt+d", "re");
-                    }
+                    //three finger swipe down
+//                    else if(diff_y > 400 && prev_fingers ==3){
+//                        popen("xdotool key super+t", "re");
+//                    }
 
                     start = false;
                     start_x = 0;

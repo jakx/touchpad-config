@@ -5,5 +5,5 @@ A daemon process that interprets swipes
     currently works with
         *three finger swipe left goes back on a webpage (triggers alt+Left)
         *three finger swipe right goes forward on a webpage (triggers alt+Right)
-        *four finger swipe up or down shows or hides desktop (triggers ctrl+alt+d)
-        *three finger swipe down opens a terminal (triggers super+t)
+        *four finger swipe up shows or hides desktop (triggers ctrl+alt+d)
+        *four finger swipe down opens a terminal (triggers super+t)
