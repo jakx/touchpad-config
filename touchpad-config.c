@@ -84,27 +84,27 @@ int main( int argc, char *argv[] )
                 else {
                     diff_x = x - start_x;
                     diff_y = y - start_y;
-                    //four finger swipe  up
-                    if(diff_y < -400 && prev_fingers ==4){
-                        popen("xdotool key ctrl+alt+d", "re");
+                    if(prev_fingers == 4){
+                            //up
+                            if(diff_y < -400){
+                                popen("xdotool key ctrl+alt+d", "re");
+                            }
+                            //down
+                            else if(diff_y > 400){
+                                popen("xdotool key super+t", "re");
+                            }
                     }
-                    //four finger swipe down
-                    else if(diff_y > 400 && prev_fingers ==4){
-                        popen("xdotool key super+t", "re");
+                    if(prev_fingers == 3){
+                            //left
+                            if(diff_x < -85){
+                                  popen("xdotool key alt+Left", "re");
+                            }
+                            //right
+                            else if(diff_x > 85){
+                                popen("xdotool key alt+Right", "re");
+                            }
                     }
-                    //three finger swipe left
-                    else if(diff_x < -85 && prev_fingers ==3){
-                          popen("xdotool key alt+Left", "re");
-                    }
-                    //three finger swipe right
-                    else if(diff_x > 85 && prev_fingers ==3){
-                        popen("xdotool key alt+Right", "re");
-                    }
-                    //three finger swipe down
-//                    else if(diff_y > 400 && prev_fingers ==3){
-//                        popen("xdotool key super+t", "re");
-//                    }
-
+                    
                     start = false;
                     start_x = 0;
                     start_y = 0;
