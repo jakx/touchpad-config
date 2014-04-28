@@ -1,4 +1,4 @@
-First install the version of synclient found here: https://github.com/felipejfc/xserver-xorg-input-synaptics.
+Install the version of synclient found here: https://github.com/felipejfc/xserver-xorg-input-synaptics.
 
 Install xdotool - run 'sudo apt-get install xdotool'
 
