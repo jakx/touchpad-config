@@ -33,10 +33,10 @@ int main( int argc, char *argv[] )
   int start_y = 0;
   int diff_x = 0;
   int diff_y = 0;
-  double* timestart = 0;
-  double* timeend = 0;
+  double timestart = 0;
+  double timeend = 0;
   
-  double* time = 0;
+  double time = 0;
   int x = 0;
   int y = 0;
   int fingers = 0;
@@ -54,7 +54,7 @@ int main( int argc, char *argv[] )
         char* token;
         token = (char*)strtok(buf, " ");
         int i = 1;
-        time = (double*)token;
+        time = atof(token);
         while (token) {
             token = (char*)strtok(NULL, " ");
 
