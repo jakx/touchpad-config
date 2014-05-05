@@ -103,6 +103,10 @@ int main( int argc, char *argv[] )
                             else if(diff_x > 85){
                                 popen("xdotool key alt+Right", "re");
                             }
+
+                            else if(diff_y > 400){
+                                popen("xdotool key super+t", "re");
+                            }
                     }
                     
                     start = false;
