@@ -86,11 +86,11 @@ int main( int argc, char *argv[] )
                     diff_y = y - start_y;
                     if(prev_fingers == 4){
                             //up
-                            if(diff_y < -400){
+                            if(diff_y < -200){
                                 popen("xdotool key ctrl+alt+d", "re");
                             }
                             //down
-                            else if(diff_y > 400){
+                            else if(diff_y > 200){
                                 popen("xdotool key super+t", "re");
                             }
                     }
@@ -103,8 +103,10 @@ int main( int argc, char *argv[] )
                             else if(diff_x > 85){
                                 popen("xdotool key alt+Right", "re");
                             }
-
-                            else if(diff_y > 400){
+                            else if(diff_y < -200){
+                                popen("xdotool key ctrl+alt+d", "re");
+                            }
+                            else if(diff_y > 200){
                                 popen("xdotool key super+t", "re");
                             }
                     }
