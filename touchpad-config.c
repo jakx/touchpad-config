@@ -96,11 +96,11 @@ int main( int argc, char *argv[] )
                     }
                     if(prev_fingers == 3){
                             //left
-                            if(diff_x < -85){
+                            if(diff_x < -105){
                                   popen("xdotool key alt+Left", "re");
                             }
                             //right
-                            else if(diff_x > 85){
+                            else if(diff_x > 105){
                                 popen("xdotool key alt+Right", "re");
                             }
                             else if(diff_y < -200){
